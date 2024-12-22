@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<a href="" >Insert New Product</a> <bR><br>
+<a href="{{ route('insert_product') }}" >Insert New Product</a> <bR><br>
     <br> <br>
     <table border style="">
         <tr>

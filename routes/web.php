@@ -21,4 +21,9 @@ Route::get('/', function () {
 Route::get('home','App\Http\Controllers\Anime@home')->name('home');
 
 Route::get('product_details/{id}','App\Http\Controllers\Anime@product_details')->name('product_details');
+
+Route::get('insert_product','App\Http\Controllers\Anime@insert_product')->name('insert_product');
+
+Route::post('do_insert','App\Http\Controllers\Anime@do_insert')->name('do_insert');
+
 // Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');
