@@ -28,4 +28,8 @@ Route::post('do_insert','App\Http\Controllers\Anime@do_insert')->name('do_insert
 
 Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');
 
+Route::get('edit/{id}','App\Http\Controllers\Anime@edit')->name('edit');
+
+Route::post('do_edit/{id}','App\Http\Controllers\Anime@do_edit')->name('do_edit');
+
 // Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');

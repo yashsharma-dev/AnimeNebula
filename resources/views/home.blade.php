@@ -41,7 +41,7 @@
                 <td>{{$row->language}}</td>
                 <td>{{$row->episode}}</td>
                 <td>{{$row->rating}}</td>
-                <td><a href="">edit</a></td>
+                <td><a href="{{ route('edit',['id'=>$row->id])}}">edit</a></td>
                 <td><a href="{{ route('product_delete',['id'=>$row->id]) }}">delete</a></td>
 
 
