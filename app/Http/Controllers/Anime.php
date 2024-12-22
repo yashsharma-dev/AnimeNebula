@@ -54,5 +54,12 @@ class Anime extends Controller
 
         return redirect("home");
     }
-    
+
+
+    public function product_delete($id)
+    {
+        DB::delete("delete from home_page where id=" . $id);
+
+        return redirect("home");
+    }
 }

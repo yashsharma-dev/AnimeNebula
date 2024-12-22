@@ -26,4 +26,6 @@ Route::get('insert_product','App\Http\Controllers\Anime@insert_product')->name('
 
 Route::post('do_insert','App\Http\Controllers\Anime@do_insert')->name('do_insert');
 
+Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');
+
 // Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');
