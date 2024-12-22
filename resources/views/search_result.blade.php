@@ -1,60 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<script src="{{ asset("storage/jquery.js") }}" type="text/javascript"></script>
-
-<script src="{{ asset("storage/jquery-ui.min.js") }}" type="text/javascript"></script>
-
-<link rel="stylesheet" href="{{ asset('storage/jquery-ui.min.css') }}">
-
-<script>
-
-    var myarray=[];
-
-    <?php $count=0;
-    
-    foreach($result as $row) {  ?>
-    
-        myarray[{{$count}}]="{{ $row->name }}";
-
-<?php $count=$count+1; } ?>
-  
-
-    $(document).ready(function() {
-
-        $("#num1").autocomplete({source:myarray});
-
-    });
-
-
-</script>
 </head>
 
-<body><br><br>
+<body>
 
-    <form action="{{route('search_product')}}" method="post">
-
-        @csrf
-
-        <input type="text" name="search" id="num1" class="form-control" placeholder="Search....." /> <br>
-
-        <input type="submit" value="search" class="btn btn-primary" />
-
-
-    </form>
-    <br><br>
-
-
-    <a href="{{ route('insert_product') }}">Insert New Product</a> <bR><br>
     <br> <br>
-    <table border style="">
+
+    <div class="container">
+
+       
+        <h2>Total Products Found: {{$count}} </h2>
+       
+        <table border style="">
         <tr>
             <th>id</th>
             <th>name</th>
@@ -93,6 +54,9 @@
             </tr>
         <?php } ?>
     </table>
+
+    </div>
+
 </body>
 
 </html>

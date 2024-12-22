@@ -102,4 +102,21 @@ class Anime extends Controller
         return redirect("home");
         
     }
+
+
+    public function search_product(Request $request)
+    {
+        $search = $request->input("search");
+
+        $result = DB::select("select * from home_page where name like '%".$search."%' ");
+
+        $count=0;
+        foreach($result as $row)
+        {
+            $count=$count+1;
+        }
+
+        return view("search_result",array('result'=>$result,'count'=>$count));
+
+    }
 }

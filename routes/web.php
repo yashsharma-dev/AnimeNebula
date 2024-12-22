@@ -32,4 +32,7 @@ Route::get('edit/{id}','App\Http\Controllers\Anime@edit')->name('edit');
 
 Route::post('do_edit/{id}','App\Http\Controllers\Anime@do_edit')->name('do_edit');
 
+Route::post('search_product','App\Http\Controllers\Anime@search_product')->name('search_product');
+
+
 // Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');
