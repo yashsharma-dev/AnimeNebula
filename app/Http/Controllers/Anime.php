@@ -15,6 +15,15 @@ class Anime extends Controller
         return view("home", array("result" => $result));
     }
 
+    public function product_details($id)
+    {
+
+        $result = DB::select("select * from home_page where id=".$id);
+
+        return view("product_details", array('row'=>$result[0]));
+
+    }
+
    
 
 

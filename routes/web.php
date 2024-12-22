@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('home','App\Http\Controllers\Anime@home')->name('home');
+
+Route::get('product_details/{id}','App\Http\Controllers\Anime@product_details')->name('product_details');
 // Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');
