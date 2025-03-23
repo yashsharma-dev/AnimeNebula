@@ -39,6 +39,8 @@
 
 <body><br><br>
 
+
+
     <form action="{{route('search_product')}}" method="post">
 
         @csrf
@@ -51,6 +53,8 @@
     </form>
     <br><br>
 
+    <a href="{{route('gonres')}}">gonres</a><br><br>
+
 
     <a href="{{ route('insert_product') }}">Insert New Product</a> <bR><br>
     <br> <br>
@@ -59,6 +63,7 @@
             <th>id</th>
             <th>name</th>
             <th>alias</th>
+            <th>gonres</th>
             <th>year</th>
             <th>desc</th>
             <th>image</th>
@@ -75,6 +80,7 @@
                 <td>{{$row->id}}</td>
                 <td> <a href="{{ route('product_details',['id'=>$row->id]) }}"> {{ $row->name }} </a> </td>
                 <td>{{$row->alias}}</td>
+                <td>{{$row->gonres_name}}</td>
                 <td>{{$row->year}}</td>
                 <td>{{$row->desc}}</td>
 

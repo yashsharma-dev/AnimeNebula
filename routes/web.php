@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,19 @@ Route::get('edit/{id}','App\Http\Controllers\Anime@edit')->name('edit');
 Route::post('do_edit/{id}','App\Http\Controllers\Anime@do_edit')->name('do_edit');
 
 Route::post('search_product','App\Http\Controllers\Anime@search_product')->name('search_product');
+
+Route::get("/whome",function(){
+    $result = DB::select("select * from home_page");
+
+    return view("whome",array("result"=>$result));
+});
+
+Route::get('gonres','App\Http\Controllers\Anime@gonres')->name('gonres');
+
+Route::post('insert_gonres','App\Http\Controllers\Anime@insert_gonres')->name('insert_gonres');
+
+// Route::post('/insert-gonres', [YourController::class, 'insert_gonres'])->name('insert_gonres');
+
 
 
 // Route::get('product_delete/{id}','App\Http\Controllers\Anime@product_delete')->name('product_delete');

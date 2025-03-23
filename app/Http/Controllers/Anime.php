@@ -10,7 +10,7 @@ class Anime extends Controller
 {
     public function home()
     {
-        $result = DB::select("select * from home_page");
+        $result = DB::select("SELECT home_page.*,(gonres.name) AS gonres_name FROM home_page INNER JOIN filter_gonres ON filter_gonres.anime_id = home_page.id INNER JOIN gonres ON gonres.id = filter_gonres.gonres_id");
 
         return view("home", array("result" => $result));
     }
@@ -119,4 +119,37 @@ class Anime extends Controller
         return view("search_result",array('result'=>$result,'count'=>$count));
 
     }
+
+    public function gonres()
+    {
+        $result = DB::select("SELECT * FROM gonres");
+        return view("gonres" , array("results"=>$result));
+    }
+
+    public function insert_gonres(Request $request)
+    {
+        // Validate incoming data
+        $request->validate([
+            'anime_id' => 'required|integer',
+            'gonres' => 'required|array',
+            'gonres.*' => 'integer', // Ensure each genre ID is an integer
+        ]);
+    
+        $anime_id = $request->input('anime_id');
+        $gonres_ids = $request->input('gonres');
+    
+        // Insert each genre for the selected anime
+        foreach ($gonres_ids as $gonres_id) {
+            DB::table('filter_gonres')->insert([
+                'anime_id' => $anime_id,
+                'gonres_id' => $gonres_id,
+            ]);
+        }
+    
+        // Redirect back to home after inserting data
+        return redirect('home')->with('success', 'Genres added successfully!');
+    }
+    
+
+
 }
